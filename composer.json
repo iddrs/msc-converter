@@ -1,0 +1,14 @@
+{
+    "name": "everton/msc-converter",
+    "authors": [
+        {
+            "name": "Everton da Rosa",
+            "email": "everton3x@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php-tool-kit/tabular": "*",
+        "php-tool-kit/fs": "*"
+    }
+}

@@ -1,0 +1,101 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "e4101506ac2c91d011be62a2afdbc291",
+    "packages": [
+        {
+            "name": "php-tool-kit/fs",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-tool-kit/fs.git",
+                "reference": "c2afcd9ad301de050176db3354ea5957a0dea96d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-tool-kit/fs/zipball/c2afcd9ad301de050176db3354ea5957a0dea96d",
+                "reference": "c2afcd9ad301de050176db3354ea5957a0dea96d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.3"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "*",
+                "phpunit/phpunit": "*",
+                "squizlabs/php_codesniffer": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/fs.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Everton",
+                    "email": "your@email.here"
+                }
+            ],
+            "description": "Ferramentas para manipulação de diretórios e arquivos.",
+            "time": "2020-08-24T11:47:00+00:00"
+        },
+        {
+            "name": "php-tool-kit/tabular",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-tool-kit/tabular.git",
+                "reference": "d1141fea6037b02935391ef28e193c76443809f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-tool-kit/tabular/zipball/d1141fea6037b02935391ef28e193c76443809f8",
+                "reference": "d1141fea6037b02935391ef28e193c76443809f8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.3"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "*",
+                "phpunit/phpunit": "*",
+                "squizlabs/php_codesniffer": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/tabular.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Everton da Rosa",
+                    "email": "everton3x@gmail.com"
+                }
+            ],
+            "description": "Ferramentas para trabalhar com dados tabulares, normalmente armazenados em array, complementando as funções para arrays do PHP.",
+            "time": "2020-08-24T11:40:57+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
+}
