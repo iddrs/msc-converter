@@ -95,7 +95,7 @@ fclose($handle);
 
 echo "\tlinhas criadas: ", sizeof($bal_cont_data), PHP_EOL;
 
-//balancete da receita
+/*//balancete da receita
 echo "Criando o Balancete da Receita:", PHP_EOL;
 
 $bal_rec_data = [];
@@ -202,3 +202,34 @@ $handle = fopen(join_path($output_dir, $bal_rec_file), 'w');
 write_csv($handle, $output, ';', true);
 fclose($handle);
 echo "\tlinhas criadas: ", sizeof($output), PHP_EOL;
+
+//balancete da despesa
+echo "Criando o Balancete da Despesa:", PHP_EOL;
+
+$bal_desp_data = [];
+
+foreach ($bal_cont_data as $row){
+    if (strlen($row['NaturezaDespesa']) === 0) {
+        continue;
+    }
+    
+    $ndo = $row['NaturezaDespesa'];
+    
+    if(!key_exists($ndo, $bal_desp_data)){
+        $bal_desp_data[$ndo] = [
+            'DotacaoInicial' => 0,
+            'CreditoSuplementar' => 0,
+            'CreditoEspecialAberto' => 0,
+            'CreditoEspecialReaberto' => 0,
+            'CreditoExtraordinarioAberto' => 0,
+            'CreditoExtraordinarioReaberto' => 0,
+            'ArrecadadoDeducoes' => 0
+        ];
+    }
+}
+
+//salva os dados
+$handle = fopen(join_path($output_dir, $bal_desp_file), 'w');
+write_csv($handle, $output, ';', true);
+fclose($handle);
+echo "\tlinhas criadas: ", sizeof($output), PHP_EOL;*/
