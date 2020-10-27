@@ -41,8 +41,7 @@ foreach ($msc as $id => $row) {
 
     //identifica as informações complementares
     for ($i = 1; $i <= 7; $i++) {
-        $colname = "TipoInformacaoComplementar$i";
-        $TipoIC = $row[$colname];
+        $TipoIC = $row["TipoInformacaoComplementar$i"];
         $ValorIC = $row["InformacaoComplementar$i"];
 //        var_dump($ValorIC);exit();
         switch ($TipoIC) {
@@ -80,13 +79,19 @@ foreach ($msc as $id => $row) {
             case 'ES':
                 $destiny = 'DespesasMDEeASPS';
                 break;
+            default :
+                $destiny = false;
+                break;
         }
 //        var_dump($destiny);exit();
 
-        $bal_cont_data[$id][$destiny] = $ValorIC;
+        if($destiny){
+            $bal_cont_data[$id][$destiny] = $ValorIC;
+        }
 //        print_r($output);exit();
     }
 }
+
 //print_r($output);
 //salva o conteúdo
 $handle = fopen(join_path($output_dir, $bal_cont_file), 'w');
