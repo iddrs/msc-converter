@@ -8,6 +8,30 @@ require 'vendor/autoload.php';
 require 'config.php';
 require 'transform.php';
 
+//pega a primeira linha
+$handle = fopen($msc_file, 'r');
+$header = explode(';', trim(fgets($handle)));
+fclose($handle);
+$entidade = $header[0];
+$competencia = $header[1];
+$periodo = explode('-', $competencia);
+$ultimo_dia = [
+    1 => 31,
+    2 => 28,
+    3 => 31,
+    4 => 30,
+    5 => 31,
+    6 => 30,
+    7 => 31,
+    8 => 31,
+    9 => 30,
+    10 => 31,
+    11 => 30,
+    12 => 31
+];
+$competencia = new DateTime();
+$competencia->setDate($periodo[0], $periodo[1], $ultimo_dia[(int) $periodo[1]]);
+
 //carrega a msc
 $handle = fopen($msc_file, 'r');
 $msc = read_csv($handle, ';', true, 1);
@@ -21,6 +45,8 @@ $bal_cont_data = [];
 //inicia loop pelos dados
 
 foreach ($msc as $id => $row) {
+    $bal_cont_data[$id]['Entidade'] = $entidade;
+    $bal_cont_data[$id]['Competencia'] = $competencia->format('d/m/Y');
     $bal_cont_data[$id]['ContaContabil'] = transf_cc($row['ContaContabil']);
     $bal_cont_data[$id]['Valor'] = $row['Valor'];
     $bal_cont_data[$id]['ValorF'] = number_format($row['Valor'], 2, ',', '.');
