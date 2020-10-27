@@ -120,6 +120,8 @@ foreach ($msc as $id => $row) {
 
 //print_r($output);
 //salva o conteúdo
+//$handle = fopen(join_path($output_dir, $bal_cont_file), 'w');
+$bal_cont_file = $entidade.'_'.$competencia->format('Y-m').'.csv';
 $handle = fopen(join_path($output_dir, $bal_cont_file), 'w');
 write_csv($handle, $bal_cont_data, ';', true);
 fclose($handle);
