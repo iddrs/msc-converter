@@ -27,8 +27,14 @@ $ultimo_dia = [
     9 => 30,
     10 => 31,
     11 => 30,
-    12 => 31
+    12 => 31,
+    13 => 31
 ];
+$encerramento = false;
+if($periodo[1] == 13){
+    $periodo[1] = 12;
+    $encerramento = true;
+}
 $competencia = new DateTime();
 $competencia->setDate($periodo[0], $periodo[1], $ultimo_dia[(int) $periodo[1]]);
 
@@ -48,8 +54,9 @@ foreach ($msc as $id => $row) {
     $bal_cont_data[$id]['Entidade'] = $entidade;
     $bal_cont_data[$id]['Competencia'] = $competencia->format('d/m/Y');
     $bal_cont_data[$id]['ContaContabil'] = transf_cc($row['ContaContabil']);
-    $bal_cont_data[$id]['Valor'] = $row['Valor'];
-    $bal_cont_data[$id]['ValorF'] = number_format($row['Valor'], 2, ',', '.');
+    //$bal_cont_data[$id]['Valor'] = $row['Valor'];
+    //$bal_cont_data[$id]['ValorF'] = number_format($row['Valor'], 2, ',', '.');
+    $bal_cont_data[$id]['Valor'] = number_format($row['Valor'], 2, ',', '.');
     $bal_cont_data[$id]['TipoValor'] = $row['TipoValor'];
     $bal_cont_data[$id]['NaturezaValor'] = $row['NaturezaValor'];
 
@@ -66,7 +73,7 @@ foreach ($msc as $id => $row) {
     $bal_cont_data[$id]['DespesasMDEeASPS'] = null;
 
     //identifica as informações complementares
-    for ($i = 1; $i <= 7; $i++) {
+    for ($i = 1; $i <= 6; $i++) {
         $TipoIC = $row["TipoInformacaoComplementar$i"];
         $ValorIC = $row["InformacaoComplementar$i"];
 //        var_dump($ValorIC);exit();
@@ -121,7 +128,11 @@ foreach ($msc as $id => $row) {
 //print_r($output);
 //salva o conteúdo
 //$handle = fopen(join_path($output_dir, $bal_cont_file), 'w');
-$bal_cont_file = $entidade.'_'.$competencia->format('Y-m').'.csv';
+//$bal_cont_file = $entidade.'_'.$competencia->format('Y-m').'.csv';
+$bal_cont_file = $competencia->format('Y-m').'.csv';
+if($encerramento){
+    $bal_cont_file = $competencia->format('Y').'-13.csv';
+}
 $handle = fopen(join_path($output_dir, $bal_cont_file), 'w');
 write_csv($handle, $bal_cont_data, ';', true);
 fclose($handle);

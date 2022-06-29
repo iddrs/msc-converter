@@ -17,5 +17,6 @@ function transf_fs(string $fs): string {
 }
 
 function transf_fr(string $fr): string {
-    return $fr[0].'.'.$fr[1].$fr[2].$fr[3].'.'.$fr[4].$fr[5].$fr[6].$fr[7];
+    //return $fr[0].'.'.$fr[1].$fr[2].$fr[3].'.'.$fr[4].$fr[5].$fr[6].$fr[7];
+    return $fr;
 }
