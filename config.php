@@ -1,6 +1,6 @@
 <?php
 
-$msc_file = 'C:\Users\Everton\Documents\Contabilidade\2020\MSC\2020-04\MSCAgregadaAbril2020.csv';
+$msc_file = 'C:\Users\Everton\OneDrive\Prefeitura\2022\MSC\2022-06\MSCAgregadaJunho2022.csv';
 $output_dir = 'C:\Users\Everton\OneDrive\Prefeitura\MSC';
 //$bal_cont_file = 'bal_cont.csv';
 /*$bal_rec_file = 'bal_rec.csv';
